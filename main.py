@@ -5,45 +5,52 @@ listasimbolos = gerarLista('simbolos.cha', 'r')
 listatipos = gerarLista('tipos.cha', 'r')
 
 entrada = input()
-listainput = entrada.split(" ")
-print("\n\n", listainput, "\n\n")
+listainput = list(entrada)
+print("\n\n", listainput)
+print("\n\n")
 
-flag = False
-listavariaveis = []
+
+# ocorre(truta x=0;x<9;x++)
+
 indice = 0
+lista = listainput[0]
+listavariaveis = []
 
-while indice < len(listainput):
-  for reservada in listareservadas:
-    if listainput[indice] == reservada and listainput[indice] not in listatipos:
-      print(listainput[indice],' = palavra reservada')
-      flag = True
-      
-  for simbolo in listasimbolos:
-    if listainput[indice] == simbolo:
-      print(listainput[indice],' = símbolo')
-      flag = True
+while indice < len(entrada) - 1:
+  if lista in listareservadas and lista not in listatipos:
+    print(lista,'= palavra reservada')
+    lista = listainput[indice+1]
+
+  elif lista in listasimbolos:
+    print(lista,'= símbolo')
+    lista = listainput[indice+1]
+
+  elif lista in listavariaveis:
+    print(lista,'= variável')
+    lista = listainput[indice+1]
   
-  if listainput[indice] in listavariaveis:
-    print(listainput[indice],' = variável')
-    flag = True
+  elif lista.isnumeric():
+    print(listainput[indice], '= número')
+    lista = listainput[indice+1]
 
-  #if indice < len(listainput) - 1 and listainput[indice+1] == "=": # menos 2 casinhas pq pode ser variável apenas se ela tiver mais duas casinhas na frente. (x = 1)
-  #  print(listainput[indice],' = variável')
-  #  listavariaveis.append(listainput[indice])
-  #  flag = True
+  elif lista in listatipos:
+    print(lista,'= palavra reservada e tipo')
+    lista = listainput[indice+1]  # indice 11 + 1 = ' '
 
-  if listainput[indice] in listareservadas and listainput[indice] in listatipos:
-    print(listainput[indice],' = palavra reservada e tipo')
-    indice = indice + 1
-    print(listainput[indice],' = variável')
-    listavariaveis.append(listainput[indice])
-    flag = True
+    if lista == " ":
+      lista = listainput[indice+2] # indice 11 + 2 = x
+      indice+=1   # indice 11 + 1 = 12 (' ')
+    
+    print(lista, '= variável')
+    listavariaveis.append(lista)
+    lista = listainput[indice+2]
+    indice += 1
 
-  elif listainput[indice].isnumeric():
-    print(listainput[indice], ' = número')
+  elif lista == " ":
+    lista = listainput[indice+1]
 
-  elif not flag:
-    print(listainput[indice],' = texto')
+  else:
+    lista = lista + listainput[indice+1]
+    print(lista)
 
-  flag = False
-  indice = indice + 1
+  indice+=1
