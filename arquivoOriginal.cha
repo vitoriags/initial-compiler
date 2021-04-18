@@ -1,0 +1,67 @@
+início do código
+	Partiu
+		//código
+	flw	
+
+Tipos de dados
+	truta tr = 'a';      (char)
+	menó me = 13;        (short)
+	mano man = 37;       (int)
+	gigante gig = 555;   (long)
+	lek lk = 0.13;       (float)
+	lekão lkao = 0.37;   (double)
+	sangue bom sang = 200; (unsigned)
+
+print na tela
+	o bagui é esse ("hello world")
+	
+ler da tela
+	vai vê na fita ("%d", &X);
+if
+	
+
+if/else
+	se pá (x > 2)
+		// caso verdadeiro
+	moio
+		// caso falso
+	flw
+else if
+	se pá 
+		// X > 2
+	migue
+		// X < 2
+	moio
+		// caso falso	
+	flw	
+while
+	mano x = 5;
+	mete o loco (x > 2)
+		// rodar código
+		x--;	
+	flw
+for
+	mano man;
+	o corre (man = 0; man < 5; man++)
+		o bagui é esse ("%d", man);
+	flw;		
+
+break/continue
+	mano man;
+	o corre (man = 0; man < 5; man++)
+		// continue
+		podipá
+		// break
+		vaza
+	flw
+
+Declarar função
+	Ele memo (mano nomefunc(mano a, mano b))
+		// código da função
+		rolê 1;
+	flw
+
+chamar função
+	mano a = 5;
+	mano b = 8;
+	mano c = cola aí somar(a,b);
