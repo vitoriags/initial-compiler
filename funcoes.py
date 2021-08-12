@@ -7,5 +7,5 @@ def manipularArquivo (arquivo, tipo):
 def gerarLista(arquivo, tipo):
   lista = manipularArquivo(arquivo, tipo)
   listaseparada = lista.split(" ")
-  print (listaseparada, '\n\n')
+  #print (listaseparada, '\n\n')
   return listaseparada
